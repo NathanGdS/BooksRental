@@ -1,6 +1,6 @@
-import { CreateBookUseCase } from "../src/modules/books/useCases/createBook/CreateBookUseCase";
-import { BookRepositoryInMemory } from "../src/modules/books/repositories/in-memory/BookRepositoryInMemory";
-import { AppError } from "../src/shared/error/AppError";
+import { CreateBookUseCase } from "../../src/modules/books/useCases/createBook/CreateBookUseCase";
+import { BookRepositoryInMemory } from "../../src/modules/books/repositories/in-memory/BookRepositoryInMemory";
+import { AppError } from "../../src/shared/error/AppError";
 
 let bookRepositoryInMemory: BookRepositoryInMemory;
 let createBookUseCase: CreateBookUseCase;
