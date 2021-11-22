@@ -3,11 +3,8 @@ import { Book } from "@modules/books/infra/typeorm/entities/Book";
 import { IBookRepository } from "@modules/books/repositories/IBookRepository";
 import { AppError } from "../../../../shared/error/AppError";
 
-
-
 class CreateBookUseCase {
     constructor(private bookRepository: IBookRepository){}
-
 
     async execute({ author, title, date_release}:ICreateBookDTO): Promise<Book>{
 
