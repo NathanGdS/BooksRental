@@ -1,6 +1,6 @@
-import { CreateBookUseCase } from "../src/modules/books/useCases/createBook/CreateBookUseCase";
-import { ListBookUseCase } from "../src/modules/books/useCases/listBooks/ListBookUseCase";
-import { BookRepositoryInMemory } from "../src/modules/books/repositories/in-memory/BookRepositoryInMemory";
+import { CreateBookUseCase } from "../../src/modules/books/useCases/createBook/CreateBookUseCase";
+import { ListBookUseCase } from "../../src/modules/books/useCases/listBooks/ListBookUseCase";
+import { BookRepositoryInMemory } from "../../src/modules/books/repositories/in-memory/BookRepositoryInMemory";
 
 let bookRepositoryInMemory: BookRepositoryInMemory;
 let createBookUseCase: CreateBookUseCase;

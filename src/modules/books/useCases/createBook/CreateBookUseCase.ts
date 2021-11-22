@@ -6,6 +6,7 @@ import { AppError } from "../../../../shared/error/AppError";
 class CreateBookUseCase {
     constructor(private bookRepository: IBookRepository){}
 
+
     async execute({ author, title, date_release}:ICreateBookDTO): Promise<Book>{
 
         const bookExists = await this.bookRepository.findByTitle(title);
