@@ -30,6 +30,10 @@ class AuthorRepositoryInMemory implements IAuthorRepository{
     async findByName(name: string): Promise<Author> {
         return this.authors.find((author) => author.name === name)!;
     }
+
+    async findAll(): Promise<Author[]> {
+        return this.authors;
+    }
 }
 
 export { AuthorRepositoryInMemory };
