@@ -2,9 +2,9 @@ import { v4 as uuidV4} from "uuid";
 
 
 class Genre {
-    id: string;
+    id?: string;
     description: string;
-    created_at: Date;
+    created_at?: Date;
 
     constructor(){
         if(!this.id){

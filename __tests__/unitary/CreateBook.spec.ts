@@ -1,9 +1,22 @@
-import { CreateBookUseCase } from "../../src/modules/books/useCases/createBook/CreateBookUseCase";
-import { BookRepositoryInMemory } from "../../src/modules/books/repositories/in-memory/BookRepositoryInMemory";
+import { CreateBookUseCase } from "@modules/books/useCases/createBook/CreateBookUseCase";
+import { BookRepositoryInMemory } from "@modules/books/repositories/in-memory/BookRepositoryInMemory";
 import { AppError } from "../../src/shared/errors/AppError";
+import { Author } from "@modules/books/infra/typeorm/entities/Author";
+import { Genre } from "@modules/books/infra/typeorm/entities/Genre";
 
 let bookRepositoryInMemory: BookRepositoryInMemory;
 let createBookUseCase: CreateBookUseCase;
+
+let authors: Author[] = [
+	{name:"Frank Patrick Flinstons", nationality: "SouthAmerica", age: 65},
+	{name:"Frank Patrick Herbert", nationality: "North America", age: 65, alive: false},
+];
+
+let genres: Genre[] = [
+	{description: "Sci-Fi"},
+	{description: "Action"},
+	{description: "Fantasy"},
+];
 
 describe("Create a new Book", () => {
 
@@ -15,9 +28,11 @@ describe("Create a new Book", () => {
 	it('Should be possible to create a new Book', async() => {
 		const book = await createBookUseCase.execute({
 			title:"Duna",
-			author: "Frenskdsks",
 			date_release: new Date(),
+			authors,
+			genres,
 		});
+		console.log(book);
 		expect(book).toHaveProperty("id");
 	});
 
@@ -25,12 +40,10 @@ describe("Create a new Book", () => {
 		expect(async() => {
 			await createBookUseCase.execute({
 				title:"Duna",
-				author: "Frenskdsks",
 				date_release: new Date(),
 			});
 			await createBookUseCase.execute({
 				title:"Duna",
-				author: "Frenskdsks",
 				date_release: new Date(),
 			});
 		}).rejects.toBeInstanceOf(AppError);

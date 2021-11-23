@@ -10,15 +10,17 @@ class BookRepositoryInMemory implements IBookRepository{
 
     async create({
         title,
-        author,
         date_release,
+        authors,
+        genres,
     }: ICreateBookDTO): Promise<Book> {
         const book = new Book();
 
         Object.assign(book, {
             title,
-            author,
             date_release,
+            authors,
+            genres,
         });
 
         this.books.push(book);

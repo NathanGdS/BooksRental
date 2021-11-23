@@ -2,12 +2,12 @@ import { v4 as uuidV4} from "uuid";
 
 
 class Author {
-    id: string;
+    id?: string;
     name: string;
     nationality: string;
     age: number;
-    alive: boolean;
-    created_at: Date;
+    alive?: boolean;
+    created_at?: Date;
 
     constructor(){
         if(!this.id){

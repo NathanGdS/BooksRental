@@ -7,16 +7,22 @@ class CreateBookUseCase {
     constructor(private bookRepository: IBookRepository){}
 
 
-    async execute({ author, title, date_release}:ICreateBookDTO): Promise<Book>{
+    async execute({
+        title,
+        date_release,
+        authors,
+        genres,
+    }:ICreateBookDTO): Promise<Book>{
 
         const bookExists = await this.bookRepository.findByTitle(title);
 
         if(bookExists) throw new AppError("Book already exists!");
 
         const book = await this.bookRepository.create({
-            author,
             title,
             date_release,
+            authors,
+            genres,
         });
 
         return book;
