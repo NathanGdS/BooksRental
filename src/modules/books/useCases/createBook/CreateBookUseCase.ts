@@ -1,7 +1,7 @@
-import { ICreateBookDTO } from "../../dtos/ICreateBookDTO";
-import { Book } from "../../infra/typeorm/entities/Book";
+import { ICreateBookDTO } from "@modules/books/dtos/ICreateBookDTO";
+import { Book } from "@modules/books/infra/typeorm/entities/Book";
+import { AppError } from "../../../../shared/errors/AppError";
 import { IBookRepository } from "../../repositories/IBookRepository";
-import { AppError } from "../../../../shared/error/AppError";
 
 class CreateBookUseCase {
     constructor(private bookRepository: IBookRepository){}

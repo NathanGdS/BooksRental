@@ -1,7 +1,7 @@
 import { ICreateGenreDTO } from "../../dtos/ICreateGenreDTO";
 import { Genre } from "../../infra/typeorm/entities/Genre";
 import { IGenreRepository } from "../../repositories/IGenreRepository";
-import { AppError } from "../../../../shared/error/AppError";
+import { AppError } from "../../../../shared/errors/AppError";
 
 class CreateGenreUseCase {
     constructor(

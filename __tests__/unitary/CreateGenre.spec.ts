@@ -1,6 +1,6 @@
 import { GenreRepositoryInMemory } from "../../src/modules/books/repositories/in-memory/GenreRepositoryInMemory";
 import { CreateGenreUseCase } from "../../src/modules/books/useCases/createGenre/CreateGenreUseCase";
-import { AppError } from "../../src/shared/error/AppError";
+import { AppError } from "../../src/shared/errors/AppError";
 
 let genreRepositoryInMemory: GenreRepositoryInMemory;
 let createGenreUseCase: CreateGenreUseCase;
