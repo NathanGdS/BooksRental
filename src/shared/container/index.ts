@@ -3,6 +3,6 @@ import { IGenreRepository } from "@modules/books/repositories/IGenreRepository";
 import { container } from "tsyringe";
 
 container.registerSingleton<IGenreRepository>(
-    "GenreRepository",
+    "GenresRepository",
     GenresRepository
 );

@@ -13,7 +13,7 @@ class CreateGenreController {
             );
             
             const genre = await createGenreUseCase.execute({description});
-
+            console.log("aqui");
             return response.status(200).json(genre);
 
         }catch (e){

@@ -6,6 +6,6 @@ const genreRoutes = Router();
 
 const createGenreController = new CreateGenreController();
 
-genreRoutes.get("/list", createGenreController.handle);
+genreRoutes.post("/", createGenreController.handle);
 
 export { genreRoutes };

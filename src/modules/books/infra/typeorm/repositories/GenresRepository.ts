@@ -28,7 +28,6 @@ class GenresRepository implements IGenreRepository {
 
     async findByDescription(description: string): Promise<Genre> {
         const genre = await this.repository.findOne({description});
-
         return genre;
     }
 }
