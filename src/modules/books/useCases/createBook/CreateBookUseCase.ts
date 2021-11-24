@@ -11,7 +11,7 @@ class CreateBookUseCase {
         title,
         date_release,
         authors,
-        genres,
+        genre_id,
     }:ICreateBookDTO): Promise<Book>{
 
         const bookExists = await this.bookRepository.findByTitle(title);
@@ -22,7 +22,7 @@ class CreateBookUseCase {
             title,
             date_release,
             authors,
-            genres,
+            genre_id,
         });
 
         return book;

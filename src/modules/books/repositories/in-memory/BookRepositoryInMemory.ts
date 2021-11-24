@@ -12,7 +12,7 @@ class BookRepositoryInMemory implements IBookRepository{
         title,
         date_release,
         authors,
-        genres,
+        genre_id,
     }: ICreateBookDTO): Promise<Book> {
         const book = new Book();
 
@@ -20,7 +20,7 @@ class BookRepositoryInMemory implements IBookRepository{
             title,
             date_release,
             authors,
-            genres,
+            genre_id,
         });
 
         this.books.push(book);

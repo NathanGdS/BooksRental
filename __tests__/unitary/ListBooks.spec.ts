@@ -1,10 +1,16 @@
 import { CreateBookUseCase } from "../../src/modules/books/useCases/createBook/CreateBookUseCase";
 import { ListBookUseCase } from "../../src/modules/books/useCases/listBooks/ListBookUseCase";
 import { BookRepositoryInMemory } from "../../src/modules/books/repositories/in-memory/BookRepositoryInMemory";
+import { Author } from "@modules/books/infra/typeorm/entities/Author";
 
 let bookRepositoryInMemory: BookRepositoryInMemory;
 let createBookUseCase: CreateBookUseCase;
 let listBookUseCase: ListBookUseCase;
+
+let authors: Author[] = [
+	{name:"Frank Patrick Flinstons", nationality: "SouthAmerica", age: 65},
+	{name:"Frank Patrick Herbert", nationality: "North America", age: 65, alive: false},
+];
 
 describe("List Books", () => {
     beforeEach(() => {
@@ -16,7 +22,7 @@ describe("List Books", () => {
     it('Sould be able to list all books', async () => {
         const book = await createBookUseCase.execute({
             title:"Duna",
-            author: "Frenskdsks",
+            authors,
             date_release: new Date(),
         });
 

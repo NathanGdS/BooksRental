@@ -7,7 +7,7 @@ class Book{
     title: string;
     date_release: Date;
     authors: Author[];
-    genres: Genre[];
+    genres_id: string;
     created_at: Date;   
 
     constructor(){

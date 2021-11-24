@@ -16,9 +16,6 @@ describe("Create a Genre", () => {
         const genre = await createGenreUseCase.execute({
             description: "Sci-Fi",
         });
-
-        console.log(genre);
-
         expect(genre).toHaveProperty("id");
     });
 

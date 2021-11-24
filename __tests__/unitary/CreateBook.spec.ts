@@ -12,12 +12,6 @@ let authors: Author[] = [
 	{name:"Frank Patrick Herbert", nationality: "North America", age: 65, alive: false},
 ];
 
-let genres: Genre[] = [
-	{description: "Sci-Fi"},
-	{description: "Action"},
-	{description: "Fantasy"},
-];
-
 describe("Create a new Book", () => {
 
 	beforeEach(() => {
@@ -30,10 +24,10 @@ describe("Create a new Book", () => {
 			title:"Duna",
 			date_release: new Date(),
 			authors,
-			genres,
+			genre_id: "uuid",
 		});
-		console.log(book);
 		expect(book).toHaveProperty("id");
+		expect(book).toHaveProperty("genre_id");
 	});
 
 	it('Should not be able to create a new Book if the title already exists', async() => {
