@@ -2,11 +2,12 @@ import { ICreateAuthorDTO } from "@modules/books/dtos/ICreateAuthorDTO";
 import { Author } from "@modules/books/infra/typeorm/entities/Author";
 import { IAuthorRepository } from "@modules/books/repositories/IAuthorRepository";
 import { AppError } from "@shared/errors/AppError";
+import { inject, injectable } from "tsyringe";
 
-
-
+@injectable()
 class CreateAuthorUseCase {
     constructor(
+        @inject("AuthorsRepository")
         private authorRepository: IAuthorRepository
     ) {}
 
@@ -20,7 +21,7 @@ class CreateAuthorUseCase {
         const authorExists = await this.authorRepository.findByName(name);
 
         if(authorExists) throw new AppError("The author's name already exists!");
-
+        
         const author = await this.authorRepository.create({
             age,
             name,
