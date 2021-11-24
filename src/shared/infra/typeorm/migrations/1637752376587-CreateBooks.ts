@@ -36,6 +36,12 @@ export class CreateBooks1637752376587 implements MigrationInterface {
                         type: "uuid",
                         isNullable: false,
                     },
+
+                    {
+                        name: "created_at",
+                        type: "timestamp",
+                        default: "now()",
+                    }
                 ],
                 foreignKeys: [
                     {

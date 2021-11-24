@@ -44,7 +44,7 @@ export class CreateAuthorsBooks1637780084381 implements MigrationInterface {
         await queryRunner.createForeignKey(
             "authors_books",
             new TableForeignKey({
-                name: "FKABookuthor",
+                name: "FKBookAuthor",
                 referencedTableName: "books",
                 referencedColumnNames: ["id"],
                 columnNames: ["book_id"],
@@ -56,13 +56,14 @@ export class CreateAuthorsBooks1637780084381 implements MigrationInterface {
 
     public async down(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.dropForeignKey(
-            "authors_bookss",
-            "FKAuthorBook"
-        );
-        await queryRunner.dropForeignKey(
-            "authors_bookss",
+            "authors_books",
             "FKBookAuthor"
         );
+        await queryRunner.dropForeignKey(
+            "authors_books",
+            "FKAuthorBook"
+        );
+
         await queryRunner.dropTable("authors_books");
     }
 }
