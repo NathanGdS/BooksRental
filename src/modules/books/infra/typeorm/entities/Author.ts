@@ -30,9 +30,6 @@ class Author {
             this.id = uuidV4();
             this.created_at = new Date();
         }
-        if(!this.alive){
-            this.alive = true;
-        }
     }
 }
 
