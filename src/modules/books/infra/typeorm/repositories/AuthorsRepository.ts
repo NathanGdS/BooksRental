@@ -32,8 +32,9 @@ class AuthorsRepository implements IAuthorRepository {
         const author = this.repository.findOne({name});
         return author;
     }
-    findAll(): Promise<Author[]> {
-        throw new Error("Method not implemented.");
+    async findAll(): Promise<Author[]> {
+        const authors = this.repository.find();
+        return authors;
     }
 
 }
