@@ -14,7 +14,7 @@ class CreateGenreUseCase {
     async execute({description}: ICreateGenreDTO):Promise<Genre>{
         const genreExists = await this.genreRepository.findByDescription(description);
         
-        if(genreExists) throw new AppError("Genre already exists!");
+        if(genreExists) throw new AppError("Genre already exists!", 401);
         
         const genre = await this.genreRepository.create({description});
 

@@ -13,7 +13,7 @@ class Genre {
     @CreateDateColumn()
     created_at?: Date;
 
-    @OneToMany(() => Book, book => book.genre, { eager: true})
+    @OneToMany(() => Book, book => book.genre, { eager: true, cascade: false})
     books: Book[];
 
     constructor(){

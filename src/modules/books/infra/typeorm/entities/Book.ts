@@ -25,7 +25,7 @@ class Book{
     @Column()
     genre_id: string
     
-    @ManyToMany(() => Author, { eager: true})
+    @ManyToMany(() => Author, { eager: true, cascade: true})
     @JoinTable({
         name:"authors_books",
         joinColumns: [{name: "book_id"}],
