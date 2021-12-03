@@ -19,7 +19,7 @@ class CreateAuthorController {
                 alive,
             });
 
-            return response.status(200).json(author);
+            return response.status(201).json(author);
 
         }catch (e){
             return response.status(400).json({ error: e.message });
