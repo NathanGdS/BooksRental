@@ -28,7 +28,6 @@ class Author {
     constructor(){
         if(!this.id){
             this.id = uuidV4();
-            this.created_at = new Date();
         }
     }
 }

@@ -8,8 +8,19 @@ let bookRepositoryInMemory: BookRepositoryInMemory;
 let createBookUseCase: CreateBookUseCase;
 
 let authors: Author[] = [
-	{name:"Frank Patrick Flinstons", nationality: "SouthAmerica", age: 65},
-	{name:"Frank Patrick Herbert", nationality: "North America", age: 65, alive: false},
+	{
+        name:"Frank Patrick Flinstons",
+        nationality: "SouthAmerica",
+        age: 65,
+        books: []
+    },
+	{
+        name:"Frank Patrick Herbert",
+        nationality: "North America",
+        age: 65,
+        alive: false,
+        books: []
+    },
 ];
 
 describe("Create a new Book", () => {
@@ -25,6 +36,7 @@ describe("Create a new Book", () => {
 			date_release: new Date(),
 			authors,
 			genre_id: "uuid",
+			description: "Crazy book on space",
 		});
 		expect(book).toHaveProperty("id");
 		expect(book).toHaveProperty("genre_id");
@@ -35,10 +47,12 @@ describe("Create a new Book", () => {
 			await createBookUseCase.execute({
 				title:"Duna",
 				date_release: new Date(),
+				description: "Crazy book on space",
 			});
 			await createBookUseCase.execute({
 				title:"Duna",
 				date_release: new Date(),
+				description: "Crazy book on space",
 			});
 		}).rejects.toBeInstanceOf(AppError);
 	})

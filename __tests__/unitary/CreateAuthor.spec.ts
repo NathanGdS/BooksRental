@@ -14,13 +14,6 @@ describe("Create an Author", () => {
     });
 
     it("Should be able to create an new Author", async()=>{
-        const authorDead = await createAuthorUseCase.execute({
-            name: "Frank Patrick Herbert",
-            age: 65,
-            nationality: "North America",
-            alive: false,
-        });
-
         const authorAlive = await createAuthorUseCase.execute({
             name: "Alive Author",
             age: 99,

@@ -8,8 +8,19 @@ let createBookUseCase: CreateBookUseCase;
 let listBookUseCase: ListBookUseCase;
 
 let authors: Author[] = [
-	{name:"Frank Patrick Flinstons", nationality: "SouthAmerica", age: 65},
-	{name:"Frank Patrick Herbert", nationality: "North America", age: 65, alive: false},
+	{
+        name:"Frank Patrick Flinstons",
+        nationality: "SouthAmerica",
+        age: 65,
+        books: []
+    },
+	{
+        name:"Frank Patrick Herbert",
+        nationality: "North America",
+        age: 65,
+        alive: false,
+        books: []
+    },
 ];
 
 describe("List Books", () => {
@@ -24,6 +35,7 @@ describe("List Books", () => {
             title:"Duna",
             authors,
             date_release: new Date(),
+            description: "Crazy book on space",
         });
 
         const books = await listBookUseCase.execute();
